@@ -24,7 +24,7 @@ mongoose.connect(`${process.env.START_MONGODB}${process.env.MONGODB_USERNAME}:${
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000/", credentials: true }))
+app.use(cors({ origin: "https://inspiring-pare-0945fe.netlify.app", credentials: true }))
 
 app.set("trust proxy", 1);
 
@@ -153,9 +153,9 @@ passport.use(new GitHubStrategy({
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:3000/', session: true }),
+  passport.authenticate('google', { failureRedirect: 'https://inspiring-pare-0945fe.netlify.app', session: true }),
   function (req, res) {
-    res.redirect('http://localhost:3000/');
+    res.redirect('https://inspiring-pare-0945fe.netlify.app');
   });
 
 
@@ -171,9 +171,9 @@ app.get('/auth/google/callback',
 app.get('/auth/github', passport.authenticate('github'));
 
 app.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: 'http://localhost:3000/', session: true }),
+  passport.authenticate('github', { failureRedirect: 'https://inspiring-pare-0945fe.netlify.app', session: true }),
   function (req, res) {
-    res.redirect('http://localhost:3000/');
+    res.redirect('https://inspiring-pare-0945fe.netlify.app');
   });
 
 
